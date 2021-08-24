@@ -15,8 +15,8 @@ class CreateHistorialsTable extends Migration
     {
         Schema::create('historials', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_usu');
-            $table->foreign('id_usu')->references('id')->on('adm_usuarios');
+            $table->unsignedBigInteger('id_user');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->date('fecha');
             $table->string('accion',250);
             $table->string('lugar',250);

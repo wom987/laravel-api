@@ -17,9 +17,9 @@ class CreatePermisomenusTable extends Migration
             $table->id();
             $table->unsignedBigInteger('id_menu');
             $table->foreign('id_menu')->references('id')->on('menus');
-            $table->unsignedBigInteger('id_usuario');
+            $table->unsignedBigInteger('id_user');
             
-            $table->foreign('id_usuario')->references('id')->on('adm_usuarios');
+            $table->foreign('id_user')->references('id')->on('users');
             $table->string('nombre');
             $table->string('estado')->default('activo');
             $table->string('eliminado')->default('false');

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,10 @@ Route::get('/menu','App\Http\Controllers\MenuController@index');
 Route::post('/menu/store','App\Http\Controllers\MenuController@store');
 Route::put('/menu/{id}','App\Http\Controllers\MenuController@update');
 Route::delete('/menu/{id}','App\Http\Controllers\MenuController@destroy');
+//auth 
+Route::post('/login','App\Http\Controllers\AuthController@login');
+Route::post('/register','App\Http\Controllers\AuthController@register');
+Route::group(['middleware'=>['auth:sanctum']],function(){
+    Route::get('/menu','App\Http\Controllers\MenuController@index');
+    Route::post('/logout','App\Http\Controllers\AuthController@logout');  
+});

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePermisossubmenusTable extends Migration
+class CreateSubmenusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePermisossubmenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('permisossubmenus', function (Blueprint $table) {
+        Schema::create('submenus', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_permisoMenu');
-            $table->foreign('id_permisoMenu')->references('id')->on('permisomenus');
+            $table->unsignedBigInteger('id_menu');
+            $table->foreign('id_menu')->references('id')->on('menus');
             $table->string('nombre',60);
             $table->string('estado',15);
             $table->string('eliminado')->default('false');
