@@ -13,7 +13,7 @@ class CreateSubmenusTable extends Migration
      */
     public function up()
     {
-        Schema::create('submenus', function (Blueprint $table) {
+        Schema::create('sub_menus', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_menu');
             $table->foreign('id_menu')->references('id')->on('menus');

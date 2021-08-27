@@ -17,14 +17,20 @@ use Illuminate\Http\Request;
 Route::get('/', function () {
     return view('welcome');
 });
+//menus routes 
 Route::get('/menu','App\Http\Controllers\MenuController@index');
 Route::post('/menu/store','App\Http\Controllers\MenuController@store');
 Route::put('/menu/{id}','App\Http\Controllers\MenuController@update');
 Route::delete('/menu/{id}','App\Http\Controllers\MenuController@destroy');
+
+//submenus routes 
+Route::get('/submenu','App\Http\Controllers\SubMenuController@index');
+Route::post('/submenu/store','App\Http\Controllers\SubMenuController@store');
+Route::put('/submenu/{id}','App\Http\Controllers\SubMenuController@update');
+Route::delete('submenu/{id}','App\Http\Controllers\SubMenuController@destroy');
 //auth 
 Route::post('/login','App\Http\Controllers\AuthController@login');
 Route::post('/register','App\Http\Controllers\AuthController@register');
+Route::get('/menu','App\Http\Controllers\MenuController@index');
 Route::group(['middleware'=>['auth:sanctum']],function(){
-    Route::get('/menu','App\Http\Controllers\MenuController@index');
-    Route::post('/logout','App\Http\Controllers\AuthController@logout');  
 });
