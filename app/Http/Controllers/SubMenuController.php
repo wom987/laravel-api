@@ -10,7 +10,7 @@ class SubMenuController extends Controller
 {
     public function index()
     {
-        $submenu = DB::table('sub_menus')
+        $submenu = DB::table('view_menu_submenus')
             ->select()
             ->where('eliminado', 'false')
             ->get();
